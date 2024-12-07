@@ -42,3 +42,24 @@
 #
 # -----------------------------------------------------------------------------
 # Напишите программу ниже:
+Price_buy_obligation = int(input('Цена покупки облигации.'))
+Price_sell_obligation = int(input('Цена погашения облигации.'))
+Sum_tickets =  int(input('Сумму разовой купонной выплаты'))
+Period_pay = int(input('Периодичность выплаты купонов'))
+commission =  int(input('Комиссию брокера'))
+Period_end = int(input('Период до погашения'))
+Commission_on_buy = Price_buy_obligation * (commission/100)
+Fullcommission_price_buy = Price_buy_obligation + Commission_on_buy
+Fullticket_income = Sum_tickets * (Period_end/Period_pay)
+total_income = Price_sell_obligation + Fullticket_income - Fullcommission_price_buy
+if total_income > 0:
+    income_tax = total_income * 0,13
+else:
+    income_tax = 0
+Net_profitability = ( total_income - income_tax)/ Fullcommission_price_buy * 100
+print('Комиссия на покупку' ,Commission_on_buy)
+print('Полная цена покупки:' ,Fullcommission_price_buy)
+print( 'Общий купонный доход:' ,Fullticket_income)
+print('Общий доход до налогообложения:' , total_income)
+print('Налог на доход:' ,income_tax)
+print('Чистая доходность(в процентах)',Net_profitability)
